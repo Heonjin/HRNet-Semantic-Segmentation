@@ -1,0 +1,100 @@
+# apt-get update
+# apt-get install -y libgtk2.0-dev
+
+
+
+# mkdir pretrained_models
+# put hrnetv2_w48_imagenet_pretrained.pth in pretrained_models/
+# This is downloaded from https://onedrive.live.com/?authkey=%21AKvqI6pBZlifgJk&cid=F7FD0B7F26543CEB&id=F7FD0B7F26543CEB%21116&parId=F7FD0B7F26543CEB%21105&action=locate
+
+# put hrnet_ocr_ade20k_4451_torch04.pth in .
+# This is downloaded from https://github.com/HRNet/HRNet-Semantic-Segmentation/tree/HRNet-OCR#segmentation-models
+
+# make the following
+# mkdir train val train/image train/label val/image val/label
+# cp images/training/* train/image/
+# cp images/validation/* val/image/
+# cp annotations/training/* train/label/
+# cp annotations/validation/* val/label/
+├── ade20k
+│   ├── train
+│   │   ├── image
+│   │   └── label
+│   └── val
+│       ├── image
+│       └── label
+
+
+
+# move Cadis
+
+# mkdir test train val train/image train/label val/image val/label test/image test/label
+
+cp Video01/Labels/* train/label/
+cp Video03/Labels/* train/label/
+cp Video04/Labels/* train/label/
+cp Video06/Labels/* train/label/
+cp Video08/Labels/* train/label/
+cp Video09/Labels/* train/label/
+cp Video11/Labels/* train/label/
+cp Video13/Labels/* train/label/
+cp Video14/Labels/* train/label/
+cp Video15/Labels/* train/label/
+cp Video17/Labels/* train/label/
+cp Video18/Labels/* train/label/
+cp Video19/Labels/* train/label/
+cp Video20/Labels/* train/label/
+cp Video21/Labels/* train/label/
+cp Video23/Labels/* train/label/
+cp Video24/Labels/* train/label/
+cp Video25/Labels/* train/label/
+
+
+cp Video02/Images/* test/image/
+cp Video05/Images/* val/image/
+cp Video07/Images/* val/image/
+cp Video12/Images/* test/image/
+cp Video16/Images/* val/image/
+cp Video22/Images/* test/image/
+
+cp Video02/Labels/* test/label/
+cp Video05/Labels/* val/label/
+cp Video07/Labels/* val/label/
+cp Video12/Labels/* test/label/
+cp Video16/Labels/* val/label/
+cp Video22/Labels/* test/label/
+
+
+
+# Edit yaml with Cadis Classes and # of gpus
+# Make lib/datasets/cadisv2.py
+# Edit lib/datasets/__init__.py
+# Edit cadisv2.py Cadisv2, super(Cadisv2), CaDISv2
+# Edit tools/train.py DATASET.lower() #line 121, 172
+
+
+
+
+
+
+
+# Before initial commit
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
+
+	modified:   experiments/ade20k/seg_hrnet_ocr_w48_520x520_ohem_sgd_lr2e-2_wd1e-4_bs_16_epoch120.yaml
+	modified:   lib/datasets/__init__.py
+	modified:   tools/test.py
+	modified:   tools/train.py
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	ADEChallengeData2016.zip
+	do.txt
+	experiments/cadis/
+	hrnet_ocr_ade20k_4451_torch04.pth
+	lib/datasets/cadisv2.py
+	temp.py
+

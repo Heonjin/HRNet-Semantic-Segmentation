@@ -100,5 +100,7 @@ TEST:
   BASE_SIZE: 520
   BATCH_SIZE_PER_GPU: 1
   NUM_SAMPLES: 200
-  FLIP_TEST: false
-  MULTI_SCALE: false
+  FLIP_TEST: true # false
+  MULTI_SCALE: true # false
+  MODEL_FILE: hrnet_ocr_ade20k_4451_torch04.pth
+  SCALE_LIST: 0.5,0.75,1.0,1.25,1.5,1.75,2.0 # I made it

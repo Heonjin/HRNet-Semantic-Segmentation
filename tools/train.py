@@ -118,7 +118,7 @@ def main():
 
     # prepare data
     crop_size = (config.TRAIN.IMAGE_SIZE[1], config.TRAIN.IMAGE_SIZE[0])
-    train_dataset = eval('datasets.'+config.DATASET.DATASET)(
+    train_dataset = eval('datasets.'.lower()+config.DATASET.DATASET.lower())(
                         root=config.DATASET.ROOT,
                         list_path=config.DATASET.TRAIN_SET,
                         num_samples=None,
@@ -169,7 +169,7 @@ def main():
 
 
     test_size = (config.TEST.IMAGE_SIZE[1], config.TEST.IMAGE_SIZE[0])
-    test_dataset = eval('datasets.'+config.DATASET.DATASET)(
+    test_dataset = eval('datasets.'+config.DATASET.DATASET.lower())(
                         root=config.DATASET.ROOT,
                         list_path=config.DATASET.TEST_SET,
                         num_samples=config.TEST.NUM_SAMPLES,
