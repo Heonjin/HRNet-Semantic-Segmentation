@@ -2,6 +2,7 @@
 __pycache__/
 *.py[co]
 log/
+data/
 output/
 pretrained_models
 scripts/
