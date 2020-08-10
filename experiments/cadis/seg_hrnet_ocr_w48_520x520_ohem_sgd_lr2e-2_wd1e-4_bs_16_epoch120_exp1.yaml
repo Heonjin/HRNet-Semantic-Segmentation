@@ -11,8 +11,8 @@ PRINT_FREQ: 10
 DATASET:
   DATASET: CaDISv2
   ROOT: 'data/'
-  TEST_SET: 'list/cadis/val_debug.lst'
-  TRAIN_SET: 'list/cadis/train_debug.lst'
+  TEST_SET: 'list/cadis/val.lst'
+  TRAIN_SET: 'list/cadis/train.lst'
   NUM_CLASSES: 8
 MODEL:
   NAME: seg_hrnet_ocr
