@@ -15,6 +15,7 @@ from PIL import Image
 
 from .base_dataset import BaseDataset
 
+from .label_exp import *
 
 class Cadisv2(BaseDataset):
     def __init__(self,
@@ -37,6 +38,8 @@ class Cadisv2(BaseDataset):
 
         self.root = root
         self.num_classes = num_classes
+        dic = {8:1,17:2,25:3,36:4}
+        self.exp = dic[num_classes]
         self.list_path = list_path
         self.class_weights = None
 
@@ -66,6 +69,21 @@ class Cadisv2(BaseDataset):
         label = cv2.resize(label, size, interpolation=cv2.INTER_NEAREST)
         return image, label
 
+    def change_label(self,mask, exp=4):
+        # print(mask.min(),mask.max())
+        if exp == 1:
+            dic = exp1
+        elif exp == 2:
+            dic = exp2
+        elif exp == 3:
+            dic = exp3
+        else:
+            return mask
+        for ori, new in dic.items():
+            for c in new:
+                mask[mask==c] = ori
+        return mask
+
     def __getitem__(self, index):
         item = self.files[index]
         name = item["name"]
@@ -79,6 +97,7 @@ class Cadisv2(BaseDataset):
             Image.open(label_path).convert('P')
         )
         label = self.reduce_zero_label(label)
+        label = self.change_label(label,self.exp) #######
         size = label.shape
 
         if 'testval' in self.list_path:

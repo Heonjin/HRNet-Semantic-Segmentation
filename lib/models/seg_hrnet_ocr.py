@@ -670,7 +670,7 @@ class HighResolutionNet(nn.Module):
             model_dict.update(pretrained_dict)
             self.load_state_dict(model_dict)
         elif pretrained:
-            raise RuntimeError('No such file {}'.format(pretrained))
+            pass#raise RuntimeError('No such file {}'.format(pretrained))
 
 
 def get_seg_model(cfg, **kwargs):

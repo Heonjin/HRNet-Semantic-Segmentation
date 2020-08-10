@@ -3,7 +3,7 @@
 
 
 
-# mkdir pretrained_models
+# mkdir pretrained_models data/list/cadis experiments/cadis
 # put hrnetv2_w48_imagenet_pretrained.pth in pretrained_models/
 # This is downloaded from https://onedrive.live.com/?authkey=%21AKvqI6pBZlifgJk&cid=F7FD0B7F26543CEB&id=F7FD0B7F26543CEB%21116&parId=F7FD0B7F26543CEB%21105&action=locate
 

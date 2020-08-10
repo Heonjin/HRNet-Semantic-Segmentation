@@ -2,22 +2,22 @@ CUDNN:
   BENCHMARK: true
   DETERMINISTIC: false
   ENABLED: true
-GPUS: (0,1) 
+GPUS: (0,1,2,3)
 OUTPUT_DIR: 'output'
 LOG_DIR: 'log'
-WORKERS: 0
+WORKERS: 4
 PRINT_FREQ: 10
 
 DATASET:
-  DATASET: ade20k
+  DATASET: CaDISv2
   ROOT: 'data/'
-  TEST_SET: 'list/ade20k/val.lst'
-  TRAIN_SET: 'list/ade20k/train.lst'
-  NUM_CLASSES: 150
+  TEST_SET: 'list/cadis/val.lst'
+  TRAIN_SET: 'list/cadis/train.lst'
+  NUM_CLASSES: 17
 MODEL:
   NAME: seg_hrnet_ocr
   NUM_OUTPUTS: 2
-  PRETRAINED: 'pretrained_models/hrnetv2_w48_imagenet_pretrained.pth'
+  PRETRAINED: '' #'pretrained_models/hrnetv2_w48_imagenet_pretrained.pth'
   EXTRA:
     FINAL_CONV_KERNEL: 1
     STAGE1:
@@ -78,7 +78,7 @@ TRAIN:
   - 520
   - 520
   BASE_SIZE: 520
-  BATCH_SIZE_PER_GPU: 1
+  BATCH_SIZE_PER_GPU: 4
   SHUFFLE: true
   BEGIN_EPOCH: 0
   END_EPOCH: 120
