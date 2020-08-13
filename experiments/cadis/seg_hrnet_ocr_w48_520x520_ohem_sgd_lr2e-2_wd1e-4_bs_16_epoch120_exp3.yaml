@@ -102,5 +102,5 @@ TEST:
   NUM_SAMPLES: 200
   FLIP_TEST: true # false
   MULTI_SCALE: true # false
-  MODEL_FILE: hrnet_ocr_ade20k_4451_torch04.pth
+  MODEL_FILE: output/CaDISv2/seg_hrnet_ocr_w48_520x520_ohem_sgd_lr2e-2_wd1e-4_bs_16_epoch120_exp3/checkpoint.pth.tar #hrnet_ocr_ade20k_4451_torch04.pth
   SCALE_LIST: 0.5,0.75,1.0,1.25,1.5,1.75,2.0 # I made it
