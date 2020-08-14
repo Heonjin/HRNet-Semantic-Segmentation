@@ -36,7 +36,7 @@ for i in range(2):
         print(here+split+'.lst')
         # print(img_paths)
         if i ==0:
-            with open(here+split+'.lst','w') as h:
+            with open(here+split+'val.lst','w') as h:
                 for j in range(len(img_paths)):
                     h.write(img_paths[j]+' '+mask_paths[j]+'\n')
         else:
